@@ -1,0 +1,331 @@
+#! /usr/local/bin/perl
+
+# called from ./go
+
+my $num_args = $#ARGV + 1;
+if ($num_args != 2) {
+   printf("usage: master.perl country_code country_name\n");
+   exit(1);
+}
+
+my $COUNTRY_CODE = $ARGV[0];
+my $COUNTRY_NAME = $ARGV[1];
+# lower case, words separated by _, ex: south_korea
+my $LC_COUNTRY_NAME=`echo -n "$COUNTRY_NAME" | tr A-Z a-z | sed -e "s/ /_/g"`;
+# country name, words separated by _, ex South_Korea
+my $COUNTRY_NAME_U=`echo -n "$COUNTRY_NAME" | sed -e "s/ /_/g"`;
+
+
+my $tmp = "";
+
+open(OLDOUT, ">&STDOUT");
+open(STDOUT, ">../countries/$COUNTRY_CODE.html") || die "Can't redirect stdout";
+
+$tmp = `echo "$LC_COUNTRY_NAME" | awk '{printf ("%-20s", \$1)}'`;
+print OLDOUT "$tmp ";
+
+sub check_url {
+    if ($#_ != 2) {
+        return 0;
+    }
+
+    my $url = $_[0];
+    my $text = $_[1];
+    my $debug = $_[2];
+
+    use LWP 5.64;
+    my $browser = LWP::UserAgent->new;
+    my $response = $browser->get( $url );
+
+    if ($response->is_success) {
+      if (($response->content =~ "404 File Not Found") ||
+          ($response->content =~ "Wikipedia does not have an article")) {
+	  if ($debug == 1) { print OLDOUT "no  "; }
+          return 0;
+      } else {
+          print("    <li><a href=\"$url\">\n");
+          print("      $text\n");
+          print("    </a></li>\n");
+	  if ($debug == 1) { print OLDOUT "yes "; }
+          return 1;
+      }
+    }
+    if ($debug == 1) { print OLDOUT "no  "; }
+    return 0;
+}
+
+print <<THEEND;
+<html>
+<head>
+   <title>Geography Fair</title>
+
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="description" content="The Geography fair web site for $COUNTRY_NAME">
+      <meta name="keywords" content="Geography, Countries, school, Geography Fair, $CONTRY_NAME">
+</head>
+
+<body background="back1.gif" link="navy" vlink="maroon">
+    <table style="position:absolute; left:0px; top:0px"
+           bgcolor="navy" height="35px" width="40%">
+     <td>
+         &nbsp;&nbsp;&nbsp;&nbsp;<font color="white"><b>The Official Geography Fair Web Site</b></font>
+     </td>
+    </table>
+    <table bgcolor="maroon" width="100%">
+     <tr>
+      <td nowrap="1" bgcolor="maroon"> <br><font color="white" size="+3">
+       <b>&nbsp;&nbsp;&nbsp;GeographyFair.com</b></font>
+      </td>
+      <td height=80 bgcolor="maroon" align="right">
+      </td>
+      <td bgcolor="maroon" width="3%">&nbsp;</td>
+     </tr>
+   </table>
+ <table border="1" bordercolor="maroon" width="100%"
+         style="border-collapse: collapse">
+  <tr align="center">
+   <td><a href="../index.html"><b>Home</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <td><a href="../organizing.html"><b>Organizing</b></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <td><a href="../resources.html"><b>Resources</b></a>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <td><a href="../otherfairs.html"><b>Other Fairs</b></a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <td><a href="../contactus.html"><b>Contact Us</b></a>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </tr>
+ </table>
+<p>
+
+<!-- ******************* -->
+<body background="back1.gif" link="navy" vlink="maroon">
+
+<hr>
+<table width=100%>
+ <tr>
+  <td align=left valign=bottom><img src=../flags/$COUNTRY_CODE-flag.gif></td>
+  <td align=center><h1>$COUNTRY_NAME</h1></td>
+  <td align=right valign=bottom><img src=../flags/$COUNTRY_CODE-flag.gif></td>
+ </tr>
+</table>
+<hr>
+
+
+<table width=100%>
+ <tr>
+  <td valign=top>
+
+   Welcome to the $COUNTRY_NAME page at <a href=../index.html>GeographyFair.com
+   </a>. On this page, you will find links to a wealth of useful
+   information about this country. You may also use the search box below
+   to search for additional information. Help us improve our site by 
+   suggesting good sites that you find about this country and letting us
+   know if any of our links are no longer available. You can e-mail us at
+   <a href=mailto:info\@geographyfair.com>info\@geographyfair.com</a>.
+
+    <p>
+    <b>Links to information about $COUNTRY_NAME:</b>
+    <ul>
+     <li><a href="https://www.cia.gov/library/publications/the-world-factbook/flags/$COUNTRY_CODE-flag.html">
+         Information about the $COUNTRY_NAME flag
+     </a></li>
+     <li><a href="https://www.cia.gov/library/publications/the-world-factbook/geos/$COUNTRY_CODE.html">
+          $COUNTRY_NAME Facts from The World Factbook
+     </a></li>
+THEEND
+
+     # Library of Congress
+     print OLDOUT "loc:";
+     $tmp = `grep "$COUNTRY_NAME" cc_loc | awk '{printf ("%stoc.html", \$1) }'`;
+     if (length($tmp) > 2) {
+         check_url("http://lcweb2.loc.gov/frd/cs/$tmp", "Library of Congress Country Study on $COUNTRY_NAME", 1);
+     } else  {
+	 print OLDOUT "no  ";
+     }
+
+     # worldatlas.com
+     print OLDOUT "wa:";
+     $tmp = `grep "$COUNTRY_NAME" cc_wa | awk '{printf ("%s", \$1) }'`;
+     check_url("http://worldatlas.com/webimage/countrys/$tmp", 
+               "$COUNTRY_NAME map and information from WorldAtlas.com",
+	       1);
+
+     #@cy = qw(asia namerica samerica africa oceania namerica/camerica europe);
+     #foreach (@cy) {
+     #    $ret = check_url("http://worldatlas.com/webimage/countrys/$_/$tmp", "$COUNTRY_NAME map and information from WorldAtlas.com", 0);
+     #    if ($ret == 1) {
+     #	     last;
+     #	 }
+     #}
+     #if ($ret == 1) {
+     #   print OLDOUT "yes ";
+     #} else  {
+     #    print OLDOUT "no  ";
+     #}
+
+
+
+     print OLDOUT "brit:";
+     $tmp = $COUNTRY_NAME;
+     if ($COUNTRY_NAME =~ "South Korea") {
+         $tmp = "Korea,-South";
+     }
+     if ($COUNTRY_NAME =~ "North Korea") {
+         $tmp = "Korea,-North";
+     }
+     if ($COUNTRY_NAME =~ "The Gambia") {
+         $tmp = "Gambia,-The";
+     }
+     if ($COUNTRY_NAME =~ "The Bahamas") {
+         $tmp = "Bahamas,-The";
+     }
+     check_url("http://www.britannica.com/nations/$tmp", "Encyclopedia Britannica entry on $COUNTRY_NAME", 1);
+
+     print OLDOUT "ngfacts:";
+     $tmp = `echo -n "$LC_COUNTRY_NAME" | sed -e 's/_//g'`;
+     if ($COUNTRY_NAME =~ "South Korea") {
+         $tmp = "koreasouth";
+     }
+     if ($COUNTRY_NAME =~ "North Korea") {
+         $tmp = "koreanorth";
+     }
+     check_url("http://www.nationalgeographic.com/places/countries/country_$tmp.html", "$COUNTRY_NAME Facts from National Geographic", 1);
+
+     print OLDOUT "ngmaps:";
+     check_url("http://www.nationalgeographic.com/places/maps/map_country_$tmp.html", "Map of $COUNTRY_NAME from National Geographic", 1);
+
+     print OLDOUT "wiki:";
+     check_url("http://en.wikipedia.org/wiki/$COUNTRY_NAME_U", "Wikipedia entry on $COUNTRY_NAME", 1);
+
+
+print <<THEEND2;
+    </ul>
+
+    <b>Search $COUNTRY_NAME:</b>
+
+<script language="javascript">
+  function add_cc() {
+               document.myform.q.value = document.myform.q.value + " Afghanistan"
+	            }
+		      }
+		      </script>
+<script language="javascript">
+  function add_cc() {
+     if (document.myform.q.value.indexOf("$COUNTRY_NAME") == -1) {
+        document.myform.q.value = document.myform.q.value + " $COUNTRY_NAME"
+     }
+  }
+</script>
+
+
+<!-- Search Google -->
+<form name=myform onsubmit="javascript: add_cc();" method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+
+<br/>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Google Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-1506152113472091"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="channel" value="1645170305"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="safe" value="active"></input>
+<input type="hidden" name="flav" value="0001"></input>
+<input type="hidden" name="sig" value="0KydzTsgZ6e-uVW6"></input>
+<input type="hidden" name="cof" value="GALT:#000080;GL:1;DIV:#880000;VLC:880000;AH:center;BGC:FFFFFF;LBGC:880000;ALC:000080;LC:000080;T:000000;GFNT:3D81EE;GIMP:3D81EE;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- Search Google -->
+
+
+
+   <p>
+  </td>
+  <td align=right valign=top>
+    <img align=top src=../maps/$COUNTRY_CODE-map.gif>
+    <center>
+    Map of $COUNTRY_NAME from
+    <a href="https://www.cia.gov/library/publications/the-world-factbook/">
+      The World Factbook
+    </a>
+    </center>
+  </td>
+ </tr>
+</table>
+
+<p>
+
+<h2>Additional Resources</h2>
+ <table>
+  <tr>
+    <td> <a href="https://www.cia.gov/cia/publications/factbook/countrylisting.html">The World
+         Factbook</a></td>
+    <td> An excellent resource from the CIA</td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.nationalgeographic.com">National Geographic</a></td>
+    <td>Information from National Geographic</td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.nationalgeographic.com/xpeditions/atlas/">
+         National Geographic Society </td>
+    <td>World Atlas from National Geographic</td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.worldatlas.com">World Atlas</a></td>
+    <td> A very good site for maps. Also have general information about
+         countries.</td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.eduplace.com/ss/maps/index.html">Education Place
+         </a> </td>
+    <td> Another good page for maps. </td>
+  </tr>
+  <tr>
+    <td><a href=http://www.geographic.org>Geographic.org</a> </td>
+    <td>A good general geography site</td>
+  </tr>
+  <tr>
+    <td><a href=http://www.theodora.com/wfb/>Theodora.com</a></td>
+    <td>A very comprehensive site about countries</td>
+  </tr>
+  <tr>
+    <td> <a href="http://cyberschoolbus.un.org/infonation/index.asp">
+         U.N. Infonation site </td>
+    <td> World Map with information about each country </td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.foodbycountry.com">Food by Country</a></td>
+    <td>Information about food in every country, includes recipes</td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.nationsencyclopedia.com">Encyclopedia of the Nations</a></td>
+    <td>General information about countries</td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.indexmundi.com">Index Mundi</a></td>
+    <td>Country Profiles</td>
+  </tr>
+  <tr>
+    <td><a href=http://www.parisisd.net/staff/dmartin/geofair2001.htm>Geography Fair</a>
+    <td>General information for Geography Fairs</td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.massgeo.org/otherl.htm">More Links</a></td>
+    <td> A page with additional useful links</td>
+  </tr>
+ </table>
+
+<p>
+<a href=../index.html><b>Back to GeographyFair.com Home</b></a>
+
+</body>
+</html>
+THEEND2
+
+print OLDOUT "\n";

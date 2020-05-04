@@ -1,0 +1,99 @@
+/* note: it is expected that the header image is 1000x180px */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0;
+}
+
+.no_padding {
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#header {
+	width: 1000px;
+	height: 180px;
+	/*margin: 0px auto;*/
+        margin-top: 0px;
+        margin-left: 0px;
+	background: url(palm1.jpg) no-repeat left top;
+        z-index:-1;
+}
+div.sidebar1
+{
+    float:right;
+    border-left:1px solid gray;
+    width:160px;
+    margin:0;
+    padding:1em;
+}
+
+div.content
+{
+    /*margin-left:190px;*/
+    padding:1em;
+}
+
+div.footer
+{
+    padding:0.5em;
+    color:white;
+    background-color:gray;
+    clear:left;
+}
+
+
+/* menu style */
+#menu ul
+{
+    list-style-type:none;
+    margin:0px;
+    padding:0;
+    overflow:hidden;
+    width:1000px;
+    background-color:gray;
+}
+
+#menu li
+{
+    float:left;
+}
+
+#menu a:link
+{
+    display:block;
+    width:120px;
+    /*font-weight:bold;*/
+    color:#FFFFFF;
+    /*background-color:gray;*/
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+}
+#menu a:visited 
+{
+    display:block;
+    width:120px;
+    /*font-weight:bold;*/
+    color:#FFFFFF;
+    /*background-color:gray;*/
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+}
+
+#menu a:hover
+{
+    color:navy;
+    /*background-color:gray;*/
+}
+#menu a:active
+{
+    color:navy;
+    /*background-color:gray;*/
+}
+/* end menu style */
+

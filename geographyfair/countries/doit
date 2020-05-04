@@ -1,0 +1,8 @@
+#!/bin/csh
+
+ls *.shtml > foo
+foreach file (`cat foo`)
+    cat $file | sed -e "s/\(..\)-flag.html/flagtemplate_\1.html/" > tmp
+    mv tmp $file
+end
+rm foo

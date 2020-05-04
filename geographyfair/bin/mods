@@ -1,0 +1,4 @@
+changes made from worldfactbook to produce cc_cia:
+  remove antartica
+  remove oceans
+  fix , ex: "Gamia, The" -> "The Gambia"

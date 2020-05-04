@@ -1,0 +1,22 @@
+#! /usr/local/bin/perl
+
+if ($#ARGV != 0) {
+   printf("usage: check_url url\n"); 
+   exit(1);
+}
+
+my $url = $ARGV[0];
+
+#use LWP::Simple;
+use LWP 5.64;
+my $content = get $url;
+
+if (defined $content) {
+   print("found\n");
+   print($content);
+   print("\n");
+   exit(0);
+}
+
+print("not found\n");
+exit(1);

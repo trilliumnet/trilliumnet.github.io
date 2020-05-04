@@ -1,0 +1,12 @@
+DirectoryIndex index.html
+
+<FILES .htpasswd>
+deny from all
+</FILES>
+
+<FILES .htgroup>
+deny from all
+</FILES>
+
+
+ErrorDocument 404 /404.shtml

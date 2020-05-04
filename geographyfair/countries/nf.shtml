@@ -1,0 +1,107 @@
+<html>
+<head>
+   <title>Geography Fair Norfolk Island page</title>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="description" content="The Geography fair web site for Norfolk Island">
+      <meta name="keywords" content="Geography, Countries, school, Geography Fair, ">
+</head>
+
+<!--#include file="header.html"-->
+
+<hr>
+<table width=100%>
+ <tr>
+  <td align=left valign=bottom><img src=../flags/nf-flag.gif></td>
+  <td align=center><h1>Norfolk Island</h1></td>
+  <td align=right valign=bottom><img src=../flags/nf-flag.gif></td>
+ </tr>
+</table>
+<hr>
+
+
+<table width=100%>
+ <tr>
+  <td valign=top>
+
+   Welcome to the Norfolk Island page at <a href=../index.html>GeographyFair.com
+   </a>. On this page, you will find links to a wealth of useful
+   information about this country. You may also use the search box below
+   to search for additional information. Help us improve our site by 
+   suggesting good sites that you find about this country and letting us
+   know if any of our links are no longer available. You can e-mail us at
+   <a href=mailto:info@geographyfair.com>info@geographyfair.com</a>.
+
+    <p>
+    <b>Links to information about Norfolk Island:</b>
+    <ul>
+     <li><a href="https://www.cia.gov/library/publications/the-world-factbook/geos/nf.html">
+          Norfolk Island Facts from The World Factbook
+     </a></li>
+     <li><a href="https://www.cia.gov/library/publications/the-world-factbook/flags/flagtemplate_nf.html">
+         Information about the Norfolk Island flag
+     </a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Norfolk_Island">
+      Wikipedia entry on Norfolk Island
+    </a></li>
+     <li><a href="http://images.google.com/images?q=map+of+Norfolk Island">
+          Maps of Norfolk Island 
+     </a></li>
+    </ul>
+
+    <b>Search Norfolk Island:</b>
+
+<script language="javascript">
+  function add_cc() {
+     if (document.myform.q.value.indexOf("Norfolk Island") == -1) {
+        document.myform.q.value = document.myform.q.value + " Norfolk Island"
+     }
+  }
+</script>
+
+
+<!-- Search Google -->
+<form name=myform onsubmit="javascript: add_cc();" method="get" action="http://www.google.com/custom" target="_top">
+<table bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+
+<br/>
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi"></input>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Google Search" id="sbb"></input>
+<input type="hidden" name="client" value="pub-1506152113472091"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="channel" value="1645170305"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="safe" value="active"></input>
+<input type="hidden" name="flav" value="0001"></input>
+<input type="hidden" name="sig" value="0KydzTsgZ6e-uVW6"></input>
+<input type="hidden" name="cof" value="GALT:#000080;GL:1;DIV:#880000;VLC:880000;AH:center;BGC:FFFFFF;LBGC:880000;ALC:000080;LC:000080;T:000000;GFNT:3D81EE;GIMP:3D81EE;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- Search Google -->
+
+
+
+   <p>
+  </td>
+  <td align=right valign=top>
+    <img align=top src=../maps/nf-map.gif>
+    <center>
+    Map of Norfolk Island from
+    <a href="https://www.cia.gov/library/publications/the-world-factbook/">
+      The World Factbook
+    </a>
+    </center>
+  </td>
+ </tr>
+</table>
+
+<p>
+
+<!--#include file="morelinks.html"-->
+
+</body>
+</html>

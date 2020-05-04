@@ -1,0 +1,29 @@
+#! /usr/local/bin/perl
+
+if ($#ARGV != 0) {
+   printf("usage: check_url url\n"); 
+   exit(1);
+}
+
+my $url = $ARGV[0];
+
+use LWP 5.64;
+my $browser = LWP::UserAgent->new;
+my $response = $browser->get( $url );
+
+if ($response->is_success) {
+   print("found\n");
+   if ($response->content =~ "Wikipedia does not have an article") {
+       print("does not");
+   } else {
+       print($response->content);
+       print($response->status_line);
+   }
+   print("\n");
+   exit(0);
+}
+
+print("not found\n");
+print($response->status_line);
+print("\n");
+exit(1);

@@ -1,0 +1,526 @@
+<html>
+
+<!-- This page Copyright 1997, David A. Reid, reid@cs.utk.edu -->
+
+<!-- To Do:
+        Add to search engines
+
+        Use commas and dollar signs, is, $10,000 instead of 10000
+        leave one field blank
+        large NumPayments (>1000) causes problems
+-->
+<head>
+
+<script language="JavaScript">
+<!--  hide script from old browsers
+
+    function mywrite(str) {
+        with(parent.parent.outputFrame.document) {
+            write(str)
+        }
+    }
+
+    function ValidateFloat(input, field) {
+        var str = ""+input.value  // convert input.value from int to string
+
+        if (str.length == 0) {
+            alert("Missing entry for " + field)
+            return false;
+        }
+        for (var i = 0; i < str.length; i++) {
+            var ch = str.substring(i, i + 1)
+            if ((ch < "0" || ch > "9") && ch != '.') {
+                alert("Invalid input in " + field)
+                return false;
+            }
+        }
+        return true
+    }
+
+
+    var month
+    var day
+    var real_day
+    var year
+    function CheckDay() {
+        if (month == 2) {
+            if (day > 28) {
+                real_day = 28
+            }
+        } else if ((month==4) || (month==6) || (month==9) || (month==11)) {
+            if (day > 30) {
+                real_day = 30
+            }
+        } else {
+            real_day = day
+        }
+    }
+
+    function DateError() {
+        alert("Invalid input in 1st Payment Date, Use MM/DD/YY")
+    }
+
+    function ValidateDate(input) {
+        var str = input.value
+        var today = new Date()
+        var ch
+        var which = "month"
+
+        month = ""
+        day = ""
+        year = ""
+
+        if (str.length == 0) {
+            return true
+        }
+
+        for (var i = 0; i < str.length; i++) {
+            ch = str.substring(i, i + 1)
+            if (ch == " ") {
+                continue
+            }
+            if ((ch < "0" || ch > "9") && ch != '/') {
+                DateError()
+                return false;
+            }
+            if (which ==  "month") {
+                if (ch == "/") {
+                    which = "day"
+                } else {
+                    month += ch
+                }
+            } else if (which ==  "day") {
+                if (ch == "/") {
+                    which = "year"
+                } else {
+                    day += ch
+                }
+            } else if (which ==  "year") {
+                if (ch == "/") {
+                    DateError()
+                    return false;
+                } else {
+                    year += ch
+                }
+            }
+        }
+        if (month == "") {
+            month = today.getMonth() + 1
+        }
+        if (day == "") {
+            day = today.getDate()
+        }
+        if (year == "") {
+            year = today.getYear()
+        }
+        if ((month > 12) || (month < 0) || (day > 31) || (day < 0)) {
+            DateError()
+            return false;
+        }
+        if ((year < 0) || (year > 10000)) {
+            DateError()
+            return false;
+        }
+        if ((year > 100) && (year < 1900)) {
+            DateError()
+            return false;
+        }
+        if (year < 100) {
+            if (year < 50) {
+                year = parseInt(year) + 2000
+            } else {
+                year = parseInt(year) + 1900
+            }
+        }
+        CheckDay();
+
+        return true
+    }
+
+    function DollarFormat(num) {
+        var start_counting = 0
+        var count = 0
+        var str = "" + num    // convert num to a string
+
+        if (str.length == 0) {
+            return str
+        }
+        for (var i = 0; i < str.length; i++) {
+            var ch = str.substring(i, i + 1)
+            if (start_counting) {
+                count++
+            }
+            if (ch == ".") { 
+                start_counting = 1
+            }
+        }
+        if (count == 0) {
+            str+=".00"
+        }
+        if (count == 1) {
+            str+="0"
+        }
+        return str
+    }
+
+    function PrintRow(p1x, p1, p2x, p2, p3x, p3, p4x, p4, p5x, p5, p6x, p6, p7x, p7, p8x, p8) {
+        mywrite("<tr>")
+        if (p1x) {
+            mywrite("<td align=center>"+p1)
+        }
+        if (p2x) {
+            mywrite("<td align=right>"+p2)
+        }
+        if (p3x) {
+            mywrite("<td align=right>"+DollarFormat(p3))
+        }
+        if (p4x) {
+            mywrite("<td align=right>"+DollarFormat(p4))
+        }
+        if (p5x) {
+            mywrite("<td align=right>"+DollarFormat(p5))
+        }
+        if (p6x) {
+            mywrite("<td align=right>"+DollarFormat(p6))
+        }
+        if (p7x) {
+            mywrite("<td align=right>"+DollarFormat(p7))
+        }
+        if (p8x) {
+            mywrite("<td align=right>"+DollarFormat(p8))
+        }
+    }
+
+    function CalculatePayment(calcForm, customForm) {
+      var payment = 1
+      var PaymentNumber = 0
+      var TotalInterest = 0
+      var InterestThisYear = 0
+      var PaymentsThisYear = 0
+      var TotalPrincipal = 0
+      var PrincipalThisYear = 0
+      var TotalPayments = 0
+      var DueDate = ""
+
+      if (ValidateFloat(calcForm.LoanAmount, "Loan Amount") == false) {
+          return false
+      }
+      if (ValidateFloat(calcForm.NumPayments, "Number of Payments") == false) {
+          return false
+      }
+      if (calcForm.NumPayments.value <= 0) {
+          alert("Number of Payments must be greater than 0")
+      }
+      if (ValidateFloat(calcForm.InterestRate, "Interest Rate") == false) {
+          return false
+      }
+      if (ValidateDate(calcForm.FirstPaymentDue) == false) {
+          return false
+      }
+      LoanAmount = parseFloat(calcForm.LoanAmount.value)
+      NumPayments = parseInt(calcForm.NumPayments.value)
+      InterestRate = parseFloat(calcForm.InterestRate.value)
+
+      if (InterestRate == 0) {
+          payment = LoanAmount / NumPayments
+      } else {
+          var i = (InterestRate / 12) / 100
+          payment = LoanAmount * (i / (1 - Math.pow(1+i, -NumPayments)))
+      }
+      payment = Math.round(payment * 100) / 100
+      calcForm.payment.value = payment
+
+      with(document) {
+          //clear() 
+          // Some browsers do not support clear(), so use close() then open()
+          //close() 
+          //open()
+      }
+      mywrite("<html>")
+      mywrite("<H2><CENTER> Loan Amortization Schedule</CENTER></H2>")
+      mywrite("<H3><CENTER>")
+      mywrite("<table border=0>")
+
+      mywrite("<th align=right> Loan Amount: </th>")
+      mywrite("<td align=left> $"+LoanAmount+"</td>")
+      //mywrite("<tr>")
+
+      mywrite("<td>&nbsp;&nbsp;&nbsp;</td>")
+
+      mywrite("<th align=right> Number of Payments:</th>")
+      mywrite("<td align=left> "+NumPayments+"</td>")
+      mywrite("<tr>")
+
+      mywrite("<th align=right> Interest Rate: </th>")
+      mywrite("<td align=left> "+InterestRate+"%</td>")
+      //mywrite("<tr>")
+
+      mywrite("<td>&nbsp;&nbsp;&nbsp;</td>")
+
+      mywrite("<th align=right> Monthly Payment:</th>")
+      mywrite("<td align=left> $"+payment+"</td>")
+      mywrite("<tr>")
+
+      mywrite("</table>");
+
+      mywrite("</H3><CENTER>");
+      mywrite("<p>")
+
+      if (customForm.Border.checked) {
+          mywrite("<table border=1 cellpadding=3>")
+      } else {
+          mywrite("<table border=0 cellpadding=3>")
+      }
+
+      if (customForm.PaymentNumberCheckbox.checked) {
+          mywrite("<th> Payment<br>Number")
+      }
+      if (customForm.DueDateCheckbox.checked) {
+          mywrite("<th> Due<br>Date")
+      }
+      if (customForm.PaymentAmountCheckbox.checked) {
+          mywrite("<th> Payment<br>Amount")
+      }
+      if (customForm.PrincipalCheckbox.checked) {
+          mywrite("<th> Principal")
+      }
+      if (customForm.InterestCheckbox.checked) {
+          mywrite("<th> Interest")
+      }
+      if (customForm.InterestToDateCheckbox.checked) {
+          mywrite("<th> Interest<br>to Date")
+      }
+      if (customForm.InterestThisYearCheckbox.checked) {
+          mywrite("<th> Interest<br>this Year")
+      }
+      if (customForm.LoanBalanceCheckbox.checked) {
+          mywrite("<th> Loan<br>Balance")
+      }
+ 
+
+      while ((LoanAmount > payment) && (PaymentNumber < NumPayments)) {
+            PaymentNumber++
+            InterestPortion = (LoanAmount * InterestRate / 12)
+            InterestPortion = Math.round(InterestPortion) / 100
+            TotalInterest = Math.round((TotalInterest + InterestPortion) * 100)/100
+            InterestThisYear = Math.round((InterestThisYear + InterestPortion) * 100)/100
+            PrincipalPortion = Math.round((payment - InterestPortion) * 100)/100
+            TotalPrincipal = TotalPrincipal + PrincipalPortion
+            PrincipalThisYear = Math.round((PrincipalThisYear + PrincipalPortion) * 100) / 100
+            LoanAmount = LoanAmount - (payment - InterestPortion)
+            LoanAmount = Math.round(LoanAmount * 100) / 100
+            TotalPayments = Math.round((TotalPayments + payment) * 100) / 100
+            PaymentsThisYear = Math.round((PaymentsThisYear + payment) * 100) / 100
+            if (month != "") {
+                CheckDay()
+                DueDate = month+"/"+real_day+"/"+year
+            }
+
+            if (PrincipalPortion <= 0) {
+                alert("Invalid Combination")
+                return false
+            }
+
+            with (customForm) {
+                PrintRow (PaymentNumberCheckbox.checked, PaymentNumber,
+                    DueDateCheckbox.checked, DueDate,
+                    PaymentAmountCheckbox.checked, payment,
+                    PrincipalCheckbox.checked, PrincipalPortion,
+                    InterestCheckbox.checked, InterestPortion,
+                    InterestToDateCheckbox.checked, TotalInterest,
+                    InterestThisYearCheckbox.checked, InterestThisYear,
+                    LoanBalanceCheckbox.checked, LoanAmount)
+            }
+            if (month != "") {
+                month++
+                CheckDay()
+                if (month > 12) {
+                    if (customForm.Subtotal.checked) {
+                        mywrite("<tr>")
+                        with (customForm) {
+                            var heading = "Total for <br>" + year
+                            PrintRow (PaymentNumberCheckbox.checked, heading,
+                              DueDateCheckbox.checked, "",
+                              PaymentAmountCheckbox.checked, PaymentsThisYear,
+                              PrincipalCheckbox.checked, PrincipalThisYear,
+                              InterestCheckbox.checked, TotalInterest,
+                              InterestToDateCheckbox.checked, TotalInterest,
+                              InterestThisYearCheckbox.checked, InterestThisYear,
+                              LoanBalanceCheckbox.checked, LoanAmount)
+                        }
+                        mywrite("<tr>")
+                    }
+
+                    month = 1
+                    year++
+                    InterestThisYear = 0
+                    PrincipalThisYear = 0
+                    PaymentsThisYear = 0
+                    if (year == 100) {
+                        year = 0
+                    }
+                }
+            }
+      }
+      if (LoanAmount > 0) {
+            PaymentNumber++
+            InterestPortion = (LoanAmount * InterestRate / 12)
+            InterestPortion = Math.round(InterestPortion) / 100
+            payment = Math.round((LoanAmount + InterestPortion) * 100) / 100
+            PrincipalPortion = LoanAmount
+            TotalPrincipal = Math.round((TotalPrincipal + PrincipalPortion) * 100) /100
+            PrincipalThisYear = Math.round((PrincipalThisYear + PrincipalPortion) * 100) / 100
+            LoanAmount = 0
+            TotalInterest = Math.round((TotalInterest + InterestPortion) * 100)/100
+            InterestThisYear = Math.round((InterestThisYear + InterestPortion) * 100)/100
+            TotalPayments = Math.round((TotalPayments + payment) * 100) / 100
+            PaymentsThisYear = Math.round((PaymentsThisYear + payment) * 100) / 100
+            if (month != "") {
+                CheckDay()
+                DueDate = month+"/"+real_day+"/"+year
+            }
+
+            with (customForm) {
+                PrintRow (PaymentNumberCheckbox.checked, PaymentNumber,
+                    DueDateCheckbox.checked, DueDate,
+                    PaymentAmountCheckbox.checked, payment,
+                    PrincipalCheckbox.checked, PrincipalPortion,
+                    InterestCheckbox.checked, InterestPortion,
+                    InterestToDateCheckbox.checked, TotalInterest,
+                    InterestThisYearCheckbox.checked, InterestThisYear,
+                    LoanBalanceCheckbox.checked, LoanAmount)
+            }
+
+      }
+      if ((customForm.Subtotal.checked) && (year != "")) {
+          mywrite("<tr>")
+          with (customForm) {
+          var heading = "Total for <br>" + year
+          PrintRow (PaymentNumberCheckbox.checked, heading,
+                  DueDateCheckbox.checked, "",
+                  PaymentAmountCheckbox.checked, PaymentsThisYear,
+                  PrincipalCheckbox.checked, PrincipalThisYear,
+                  InterestCheckbox.checked, TotalInterest,
+                  InterestToDateCheckbox.checked, TotalInterest,
+                  InterestThisYearCheckbox.checked, InterestThisYear,
+                  LoanBalanceCheckbox.checked, LoanAmount)
+          }
+          mywrite("<tr>")
+      }
+
+      with (customForm) {
+          mywrite("<tr>")
+          PrintRow (PaymentNumberCheckbox.checked, "Grand<br>Total",
+                    DueDateCheckbox.checked, "",
+                    PaymentAmountCheckbox.checked, TotalPayments,
+                    PrincipalCheckbox.checked, TotalPrincipal,
+                    InterestCheckbox.checked, TotalInterest,
+                    InterestToDateCheckbox.checked, TotalInterest,
+                    InterestThisYearCheckbox.checked, "",
+                    LoanBalanceCheckbox.checked, LoanAmount)
+          mywrite("<tr>")
+      }
+                  
+      mywrite("</table>")
+      mywrite("</CENTER>")
+      mywrite("<html>")
+      return true
+    }
+// end hiding -->
+</script>
+
+</head>
+
+
+
+<body bgcolor=teal background=../back.gif>
+
+<center>
+    <table border=1 bgcolor=#c0c0c0>
+        <td colspan=6 align=center> <b> <font size=+2>Calculate Payment </font> </b> </td>
+        <form name=form1>
+          <tr>
+          <th> Loan Amount: </th>
+          <th>Number of Payments:</th>
+          <th>Interest Rate:</th>
+          <th>1st Payment Date:</th>
+          <th></th>
+          <th>Payment Amount:</th>
+          </tr><tr>
+          <td align=center> <input type="text" size=7 name="LoanAmount" value="10000"></td>
+          <td align=center> 
+              <input type="text" size=7 name="NumPayments" value="24">
+              <input type="text" name="freq" value="24">
+          </td>
+          <td align=center> <input type="text" size=7 name="InterestRate" value="8.5"></td>
+          <td align=center> <input type="text" size=7 name="FirstPaymentDue" value=""></td>
+          <td align=center rowspan=2><input type="button" name="CalcButton" 
+              value="Calculate" onclick="CalculatePayment(form1, form2)"></td>
+          <td align=center bgcolor=navy><input type="text" size=7 name="payment"></td>
+          </tr>
+        </form>
+    </table>
+
+    <br>
+    <br>
+
+    <table border=1 bgcolor=#c0c0c0>
+<!--
+        <caption> <h3> Customize Report </h3> </caption>
+-->
+        <tr>
+          <td colspan=3 align=center>
+              <b><font size=+2> Customize Report </font></b>
+          </td>
+        </tr>
+        <form name=form2>
+            <tr>
+            <th> Options: </th>
+            <td> <input type="checkbox" name="Subtotal" CHECKED>Subtotal by Year</td>
+            <td> <input type="checkbox" name="Border" CHECKED>Show Border</td>
+
+            </tr>
+            <tr> 
+            <th> Columns: </th>
+            <td> 
+                <input type="checkbox" name="PaymentNumberCheckbox" CHECKED>Payment Number
+                <br>
+                <input type="checkbox" name="PaymentAmountCheckbox" CHECKED>Payment Amount
+                <br>
+                <input type="checkbox" name="InterestToDateCheckbox" CHECKED>Interest to Date
+                <br>
+                <input type="checkbox" name="InterestThisYearCheckbox" CHECKED>Interest this Year
+            </td>
+            <td> 
+                <input type="checkbox" name="DueDateCheckbox" CHECKED>Due Date
+                <br>
+                <input type="checkbox" name="PrincipalCheckbox" CHECKED>Principal
+                <br>
+                <input type="checkbox" name="InterestCheckbox" CHECKED>Interest
+                <br>
+                <input type="checkbox" name="LoanBalanceCheckbox" CHECKED>Loan Balance
+            </td>
+            </tr>
+        </form>
+
+
+     </table>
+
+</center>
+
+<script language="JavaScript">
+<!--  hide script from old browsers
+    var curDate = new Date()
+    var day = curDate.getDate()
+    var month = curDate.getMonth() + 1
+    var tmp = month + "/" + day + "/" + curDate.getYear()
+    document.form1.FirstPaymentDue.value = tmp
+// end hiding -->
+</script>
+
+
+<center>Copyright &copy; 1997, David A. Reid, reid@cs.utk.edu</center>
+
+</body>
+
+</html>
