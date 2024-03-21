@@ -1,0 +1,50 @@
+/* menu style */
+#menu ul
+{
+    list-style-type:none;
+    margin:0px;
+    padding:0;
+    overflow:hidden;
+    width:100%;
+    background-color:gray;
+}
+
+#menu li
+{
+    float:left;
+}
+
+#menu a:link
+{
+    display:block;
+    width:120px;
+    /*font-weight:bold;*/
+    color:#FFFFFF;
+    /*background-color:gray;*/
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+}
+#menu a:visited 
+{
+    display:block;
+    width:120px;
+    /*font-weight:bold;*/
+    color:#FFFFFF;
+    /*background-color:gray;*/
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+}
+
+#menu a:hover
+{
+    color:navy;
+    /*background-color:gray;*/
+}
+#menu a:active
+{
+    color:navy;
+    /*background-color:gray;*/
+}
+/* end menu style */

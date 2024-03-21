@@ -1,0 +1,621 @@
+<head>
+   <title>A Guide to the Great Smoky Mountains National Park</title>
+
+   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+   <meta name="description" content="Recreational Activities in the Great Smoky Mountains National Park | The Smokies">
+   <meta name="keywords" content="Smokies, Smokys, Smokey, Smokeys,
+               Great Smoky Mountains National Park,
+               Smoky Mountains, Hiking Trails, Nature Trails,
+               ww, wwww, Smokie Mountains, in the,
+               in the smokies, in the smoky mountians, in the great smoky mountains,
+               leaves changing in october time, camping spots, at the smokies,
+               Camping, Picnic, TN, Tennessee, NC, North Carolina">
+
+   <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAGL0e8EpQboCwOyQpaj0jTxR-QEXOAmtMhFBk-A0HrXHMsavDGRQedGi7TxjtXDARXAUEIHFr00I6Wg"
+           type="text/javascript"></script>
+   <script src="maps.js" type="text/javascript"></script>
+</head>
+
+<body background="back1.gif" link="navy" vlink="maroon" onload="load_map3('mapmain.xml')" onunload="GUnload()">
+<table style="position:absolute; left:0px; top:0px" bgcolor="navy" height="35px" width="40%">
+  <td> 
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html"><font color="white"><b>www.smokies.ws</b></font></a>
+  </td>
+</table>
+<table bgcolor="maroon" width="100%">
+  <tr>
+  <td nowrap="1" bgcolor="maroon"> <br><font color="white" size="+3"><b>&nbsp;&nbsp;&nbsp;The Great Smoky Mountains</b></font>
+  </td>
+  <td height=80 bgcolor="maroon" align="right">
+<!--
+     <img src="1s.jpg" height="80"><img src="3s.jpg" height="80">
+-->
+  </td>
+  <td bgcolor="maroon" width="3%">&nbsp;</td>
+  </tr>
+</table>
+<table border="1" bordercolor="maroon" width="100%" xbackground="tablebg1.gif"
+        style="border-collapse: collapse">
+<tr align="center">
+<td><a href="index.html"><b>Home</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a href="hiking.html"><b>Hiking</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a href="camping.html"><b>Camping</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--
+<td><a href="fishing.html"><b>Fishing</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-->
+<td><a href="horseriding.html"><b>Horse Riding</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a href="picnicing.html"><b>Picnicing</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a href="http://astore.amazon.com/smokies-bookstore-20"><b>Bookstore</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</tr>
+</table>
+<p>
+
+<!-- ******************* -->
+
+<table border=0>
+ <tr>
+  <td valign=top>  <!-- left column -->
+   <table border=0>
+    <tr> 
+     <th><font color=navy>Smokies</font></th>
+    </tr>
+    <tr>
+     <td>
+      <table>
+       <tr>
+        <td>
+         <font color=navy>
+         <li><a href=#Map link="navy" vlink="navy"><font color=navy>Map</font></a><br>
+         <li><a href=#Activities link="navy" vlink="navy"><font color=navy>Activities</font></a><br>
+         <li><a href=#Areas link="navy" vlink="navy"><font color=navy>Areas in the park</font></a><br>
+         <li><a href=#Surround link="navy" vlink="navy"><font color=navy>Area Communities</font></a><br>
+         <li><a href=#Books link="navy" vlink="navy"><font color=navy>Recommended&nbsp;Reading</font></a><br>
+         <li><a href=#Weather link="navy" vlink="navy"><font color=navy>Weather</font></a><br>
+         <li><a href=#Lodging link="navy" vlink="navy"><font color=navy>Lodging</font></a><br>
+         <li><a href=http://astore.amazon.com/smokies-bookstore-20 link="navy" vlink="navy"><font color=navy>Bookstore</font></a><br>
+         <li><a href=#GeneralInfo link="navy" vlink="navy"><font color=navy>General information</font></a><br>
+         <li><a href=#MoreInfo link="navy" vlink="navy"><font color=navy>For&nbsp;more&nbsp;information</font></a><br>
+         <li><a href="contactus.html">Contact Us</a><br>
+         </font>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+     <td><hr color="navy" width="90%" /></td>
+     </td>
+    </tr>
+    <tr>
+     <th> 
+        <font color="navy">Search</font>
+     </th>
+    </tr>
+    <tr>
+     <td>
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><!--<td nowrap="nowrap" valign="top" align="left" height="32">
+</td>
+-->
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="www.smokies.ws"></input>
+<input type="text" name="q" size="22" maxlength="255" value=""></input>
+</td></tr>
+<tr>
+<!--
+<td>&nbsp;</td>
+-->
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value=""></input>
+<font size="-1" color="#000000">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="www.smokies.ws" checked="checked"></input>
+<font size="-1" color="#000000">Smokies.ws</font>
+</td>
+</tr>
+</table>
+<input type="submit" name="sa" value="Google Search"></input>
+<input type="hidden" name="client" value="pub-1506152113472091"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="safe" value="active"></input>
+<input type="hidden" name="flav" value="0000"></input>
+<input type="hidden" name="sig" value="0KydzTsgZ6e-uVW6"></input>
+<input type="hidden" name="cof" value="GALT:#000080;GL:1;DIV:#880000;VLC:880000;AH:center;BGC:FFFFFF;LBGC:880000;ALC:000080;LC:000080;T:000000;GFNT:3D81EE;GIMP:3D81EE;LH:25;LW:160;L:http://www.smokies.ws/logo1.gif;S:http://www.smokies.ws;FORID:1"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+
+     </td>
+    </tr>
+    <tr>
+     <td><hr color="navy" width="90%" /></td>
+    </tr>
+    <tr>
+     <td>
+      <table>
+       <tr><td><img src=lookrockview.jpg width=160></td></tr>
+       <tr><td>View from 
+       <a href="lookrock/index.html">Look Rock</a><br>observation tower</td></tr>
+       <tr><td><hr color="navy" width="90%" /></td></tr>
+      </table>
+     </td>
+    </tr>
+    
+    <tr>
+      <td>
+<!-- google ad, text-widesky-lowleft -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-1506152113472091";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text";
+//2007-08-04: text-widesky-lowleft
+google_ad_channel = "3339226807";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "000080";
+google_color_text = "000000";
+google_color_url = "000080";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end google ad -->
+<br>
+<br>
+
+<!-- google ad, link-180x90-lowleft -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-1506152113472091";
+google_ad_width = 180;
+google_ad_height = 90;
+google_ad_format = "180x90_0ads_al";
+//2007-08-04: link-180x90-lowleft
+google_ad_channel = "6680494258";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "000080";
+google_color_text = "000000";
+google_color_url = "000080";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end google ad -->
+     </td>
+    </tr>
+    
+   </table>
+  </td>  <!-- end left column -->
+
+  <td width=3 style="border-color:navy; border-width: 3; background-color:navy">
+  </td>
+  <td width=5>  <!-- spacer column --> 
+  </td>
+  <td valign=top> <!-- right column -->
+
+<h1>Welcome!</h1>
+
+<p>
+The Smokies WebSite, <b>www.smokies.ws</b>, provides information about recreational
+opportunities in the Great Smoky Mountains National Park and surrounding areas.
+The Great Smoky Mountains National Park is the most visited National Park
+in the United States. This site is a guide to hiking, camping, picnicing, and
+many other great activites available in the park. 
+</p>
+
+<p>
+<img width=175 align=right src="trail1.jpg">
+<a name="Activities"></a>
+<h2>Outdoor Recreational Activities</h2>
+Information about the following activities in the Smokies is available on 
+this site:
+<li>
+    <a href=hiking.html>Hiking in the smokies</a>, including
+    a list of trails, a description, location, length, difficulty level, and
+    a lot of other useful and interesting information.
+</li>
+<li>
+    <a href=camping.html>Camping in the smokies</a>, including a list of 
+    campgrounds.
+</li>
+<!--
+<li>
+    <a href=fishing.html>Fishing in the smokies</a>, including list of some
+    of the best fishing holes.
+</li>
+-->
+<li>
+    <a href=horseriding.html>Horseback Riding in the smokies</a>, including 
+    list of riding stables in and near the park.
+</li>
+<li>
+    <a href=picnicing.html>Picnic spots in the smokies</a>, including 
+    location, which ones have grills and picnic tables and good restrooms.
+</li>
+</p>
+
+<p>
+<a name="Areas"></a>
+<h2>Areas in the Park</h2>
+<table width=100% border=0>
+<tr>
+<td>
+This site divides the Smokies into several areas as follows:
+<li><a href="cades-cove/index.html">Cades Cove</a>
+<li><a href="lookrock/index.html">Look Rock</a>
+<li><a href="clingmans-dome-smoky-mountains/index.html">Clingmans Dome</a>
+<li>Townsend and Tremont
+<li>Elkmont
+<!--
+<li>Gatlinburg/Sugarlands
+<li>Cherokee
+-->
+<li>Newfound Gap
+<li><a href="cosby-smoky-mountains/index.html">Cosby</a>
+<li><a href="greenbrier/index.html">Greenbrier</a>
+<li>Bryson City and Deep Creek
+<!--
+<li>Fontana Lake
+-->
+<li>Balsam Mountain
+<li>Cataloochee and Big Creek
+<!--
+<li>Smokemont
+<li>Chimneys
+<li>Abrams Creek campground
+-->
+<br>
+See <a href=#Map>Map</a> below for locations.
+</td>
+<td width=8>
+</td>
+<td align=right>
+<!-- google ad, default-smallsquare-right -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-1506152113472091";
+google_ad_width = 200;
+google_ad_height = 200;
+google_ad_format = "200x200_as";
+google_ad_type = "text_image";
+//2007-08-04: default-smallsquare-right
+google_ad_channel = "2086287841";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "000080";
+google_color_text = "000000";
+google_color_url = "000080";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end google ad -->
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+<a name="Surround"></a>
+<h2>Communities around the Park</h2>
+There are a number of communities around the park in Tennessee and 
+North Carolina which provide lodging, entertainment, and additional activities. These include:
+<li><a href="http://www.gatlinburg.com">Gatlinburg, TN</a>
+<li><a href="http://www.smokymountains.org/">Townsend, TN</a>
+<li><a href="http://www.cherokee-nc.com">Cherokee, NC</a>
+<li><a href="http://www.greatsmokies.com">Bryson City, NC</a>
+<li><a href="http://www.mypigeonforge.com/">Pigeon Forge, TN</a>
+</p>
+
+<p>
+<a name="Books"></a>
+<h2>Recommended Reading</h2>
+<table border=0 cellpadding=5>
+ <tr>
+  <td width=35% valign=top>
+   <center>
+   <a href="http://www.amazon.com/gp/product/092587387X?ie=UTF8&tag=smokieswebsit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=092587387X"><img border="0" height=160 src="amazon-images/topomap.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=smokieswebsit-20&l=as2&o=1&a=092587387X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+   </center>
+   <a href="http://www.amazon.com/gp/product/092587387X?ie=UTF8&tag=smokieswebsit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=092587387X">Trails Illustrated Topo Map</a><img src="http://www.assoc-amazon.com/e/ir?t=smokieswebsit-20&l=as2&o=1&a=092587387X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+   is an excellent map of the Smokies, showing roads, hiking trails, camping areas,
+   picnic areas, ranger stations, and more. It is waterproof and tearproof, so
+   it is very durable to take with you camping or hiking, even if it rains.
+  </td>
+  <td width=35% valign=top>
+   <center>
+   <a href="http://www.amazon.com/gp/product/0898866367?ie=UTF8&tag=smokieswebsit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0898866367"><img border="0" xheight=150 src="amazon-images/100hikes.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=smokieswebsit-20&l=as2&o=1&a=0898866367" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+   </center>
+   <a href="http://www.amazon.com/gp/product/0898866367?ie=UTF8&tag=smokieswebsit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0898866367">100 Hikes in The Great Smoky Mountains National Park</a><img src="http://www.assoc-amazon.com/e/ir?t=smokieswebsit-20&l=as2&o=1&a=0898866367" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+   is one of the most informative books available about hiking in the Smokies.
+   It gives detailed information about many of the hiking trails in the park.
+  </td>
+  <td width=30% valign=top>
+   <center>
+   <a href="http://www.amazon.com/gp/product/0762744057?ie=UTF8&tag=smokieswebsit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0762744057"><img border="0" src="amazon-images/insiders_guide.jpg"></a><img src="http://www.assoc-amazon.com/e/ir?t=smokieswebsit-20&l=as2&o=1&a=0762744057" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+   </center>
+   <a href="http://www.amazon.com/gp/product/0762744057?ie=UTF8&tag=smokieswebsit-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0762744057">Insiders' Guide to the Great Smoky Mountains</a><img src="http://www.assoc-amazon.com/e/ir?t=smokieswebsit-20&l=as2&o=1&a=0762744057" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+   provides good information about outdoor activities in the park. It also provides
+   complete information about the surrounding areas including dining, lodging,
+   and area attractions.
+  </td>
+ </tr>
+</table>
+
+<a name="Weather"></a>
+<p>
+</p>
+
+<h2>Weather</h2>
+  The temperature varies depending on the season and elevation.
+  The park gets quite a bit of rain.
+  The table below shows the current conditions at the 3 main entrances to the park.
+  Temperatures at the higher elevations can be 10-20 degrees cooler.
+  Click on one of the entries below to get a complete forcast. 
+<table align=center border=1>
+  <caption><b>Current Conditions</b></caption>
+  <td>
+   <a href="http://www.wunderground.com/US/TN/Gatlinburg.html?bannertypeclick=infoboxtr">
+   <img src="http://banners.wunderground.com/weathersticker/infoboxtr/language/www/US/TN/Gatlinburg.gif" border=0
+   alt="Click for Gatlinburg, Tennessee Forecast" height=108 width=144></a>
+  </td>
+  <td>
+   <a href="http://www.wunderground.com/US/TN/Townsend.html?bannertypeclick=infoboxtr">
+   <img src="http://banners.wunderground.com/weathersticker/infoboxtr/language/www/US/TN/Townsend.gif" border=0
+   alt="Click for Townsend, Tennessee Forecast" height=108 width=144></a>
+  </td>
+  <td>
+   <a href="http://www.wunderground.com/US/NC/Cherokee.html?bannertypeclick=infoboxtr">
+   <img src="http://banners.wunderground.com/weathersticker/infoboxtr/language/www/US/NC/Cherokee.gif" border=0
+   alt="Click for Cherokee, North Carolina Forecast" height=108 width=144></a>
+  </td>
+</table>
+<br>
+<b>Spring</b> weather is unpredictable. Snow often falls in the higher elevations
+in early spring. But highs can reach the 80s in mid to late spring. Rainfall is
+common in the spring.
+<br><br>
+<b>Summer</b> is hot, hazy, and humid. Summer is a good time to visit higher elevations
+as temperatures are 10-20 degrees cooler. Highs are in the 80s and 90s and
+lows are in the 60s and 70s. Thunderstorms are common in the afternoons.
+<br><br>
+<b>Fall</b> is warm during the day and cool in the evenings. Highs are in the
+70s and 80s early fall and 50s and 60s by November.
+<br><br>
+<b>Winter</b> is generally moderate, but can be cold at times. The higher
+elevations can be very cold and get more snow than lower elevations. Most
+snow falls in January, February, and early March, but may come anytime from 
+late December to early May.
+<br><br>
+The following table shows the average high and low temperatures (in
+degrees Fahrenheit) and average snowfall (in inches) in low 
+elevations (Gatlinburg) compared to high elevations (Clingmans Dome).
+<br>
+<table align=center border=1 style="border-collapse:collapse">
+ <tr>
+  <th></th>
+  <th colspan=3 width=200>Gatlinburg</th>
+  <th colspan=4 width=200>Clingmans Dome</th>
+ </tr>
+ <tr>
+  <th align="left">Month</th>
+  <th>High</th>
+  <th>Low</th>
+  <th>Snowfall</th>
+  <th>High</th>
+  <th>Low</th>
+  <th>Snowfall</th>
+ </tr>
+ <tr>
+  <td>January</td>
+  <td align="center">51</td><td align="center">28</td>
+  <td align="center">2.1</td>
+  <td align="center">35</td><td align="center">19</td>
+  <td align="center">18</td>
+ <tr>
+ </tr>
+  <td>February</td>
+  <td align="center">54</td><td align="center">29</td>
+  <td align="center">2.3</td>
+  <td align="center">35</td><td align="center">1</td>
+  <td align="center">20</td>
+ <tr>
+ </tr>
+  <td>March</td>
+  <td align="center">61</td><td align="center">34</td>
+  <td align="center">2.9</td>
+  <td align="center">39</td><td align="center">24</td>
+  <td align="center">26</td>
+ <tr>
+ </tr>
+  <td>April</td>
+  <td align="center">71</td><td align="center">42</td>
+  <td align="center">trace</td>
+  <td align="center">49</td><td align="center">34</td>
+  <td align="center">5</td>
+ <tr>
+ </tr>
+  <td>May</td>
+  <td align="center">79</td><td align="center">50</td>
+  <td align="center">0</td>
+  <td align="center">57</td><td align="center">43</td>
+  <td align="center">trace</td>
+ <tr>
+ </tr>
+  <td>June</td>
+  <td align="center">86</td><td align="center">58</td>
+  <td align="center">0</td>
+  <td align="center">63</td><td align="center">49</td>
+  <td align="center">0</td>
+ <tr>
+ </tr>
+  <td>July</td>
+  <td align="center">88</td><td align="center">59</td>
+  <td align="center">0</td>
+  <td align="center">65</td><td align="center">53</td>
+  <td align="center">0</td>
+ <tr>
+ </tr>
+  <td>August</td> 
+  <td align="center">87</td><td align="center">60</td>
+  <td align="center">0</td>
+  <td align="center">64</td><td align="center">5</td>
+  <td align="center">0</td>
+ <tr>
+ </tr>
+  <td>September</td>
+  <td align="center">83</td><td align="center">55</td>
+  <td align="center">0</td>
+  <td align="center">60</td><td align="center">47</td>
+  <td align="center">trace</td>
+ <tr>
+ </tr>
+  <td>October</td>
+  <td align="center">73</td><td align="center">43</td>
+  <td align="center">trace</td>
+  <td align="center">53</td><td align="center">38</td>
+  <td align="center">2</td>
+ <tr>
+ </tr>
+  <td>November</td>
+  <td align="center">61</td><td align="center">33</td>
+  <td align="center">0.7</td>
+  <td align="center">42</td><td align="center">28 </td>
+  <td align="center">5</td>
+ <tr>
+ </tr>
+  <td>December</td>
+  <td align="center">52</td><td align="center">28</td>
+  <td align="center">1</td>
+  <td align="center">37</td><td align="center">21</td>
+  <td align="center">8</td>
+ </tr>
+</table>
+</p>
+
+
+  </td>
+ </tr>
+</table> <!-- end of indented part -->
+<p>
+
+<a name="Map"><h2>Map of the Smokies</h2></a>
+<table border="1" width="100%">
+ <tr>
+  <td width="15%" valign="top">
+    <div id="sidebar3">
+    </div>
+  </td>
+  <td valign="top">
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
+      However, it seems JavaScript is either disabled or not supported by your browser. 
+      To view Google Maps, enable JavaScript by changing your browser options, and then 
+      try again.
+    </noscript>
+    <div id="map3" style="height:525"></div>
+  </td>
+  <tr>
+   <td colspan="2">
+    <b>Instructions for using the map:</b>
+    <li>Click [+] to zoom in and [-] to zoom out, or drag the slider
+    <li>Click and drag to move the map or click on the directional arrows
+    <li>Click [Map] to view normal map, [Satellite] to view satellite image, or [Hybrid]
+    to show both the map and satellite views.
+    <li>Double click on a spot to re-center the map at that point.
+    <li>Press the browser reload button to reset the map to the original state
+   </td>
+  </tr>
+</table>
+
+<p>
+<a name="Lodging"></a>
+<h2>Lodging</h2>
+Lodging in the Smokies ranges from primitive campgrounds inside the national
+park to hotels and chalets in surrounding communities.
+<ul>
+<li>If you like to be close to nature, there are many places to 
+    <a href=camping.html>camp inside the national park</a> in a tent or an RV.
+    These campsites are primitive by design.
+<li>If you want to camp, but prefer some ammenities like a swimming pool, hot showers,
+    RV hookups, cable TV, internet access, etc, then look for campgrounds in the
+    <a href="#Surround">surrounding communities</a>.
+<li>Many hotels are available in the 
+    <a href="#Surround">surrounding communities</a>.
+<li>For groups, the best deal is a 
+    <a href="reidsresort/index.html">
+    private chalet </a>available in the mountains adjacent to the park.
+</ul>
+
+</p>
+
+<!--
+<p>
+<a name="Bookstore"></a>
+<h2>Bookstore</h2>
+Books about the Smokies are available from the <a href="http://www.smokiesstore.org">
+Great Smoky Mountains Association</a>.
+</p>
+-->
+
+<a name="GeneralInfo"></a>
+<h2>General Information</h2>
+The Great Smoky Mountians National Park is the most visited U.S. National Park.
+There is no admission fee to enter the park. Visitor centers are located at
+Sugarlands, Oconaluftee, and Cades Cove. More Information is available at:
+<li><a href="http://www.nps.gov/grsm/pphtml/maps.html">Park Maps</a><br>
+<li><a href="http://www.friendsofthesmokies.org/">Friends of the Smokies</a><br>
+<li><a href="http://www.geographyfair.com/">Geographic Information</a><br>
+</p>
+
+<p>
+<a name="MoreInfo"></a>
+<h2>For More Information</h2>
+<li><a href="http://www.nps.gov">US National Parks</a><br>
+<li><a href="http://www.nps.gov/grsm/">The Smoky Mountains National Park</a><br>
+<li><a href="http://www.gsmit.org/">Smoky Mountain Institute at Tremont</a><br>
+</p>
+
+<!--
+<p>
+<h2>Additional Links</h2>
+<a href="http://directory.classifieds1000.com/hiking">hiking Directory</a>
+-->
+
+
+
+<!-- google ad, text-lgrect-bottom -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-1506152113472091";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_ad_type = "text";
+//2007-08-04: text-lgrect-bottom
+google_ad_channel = "8550793406";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "000080";
+google_color_text = "000000";
+google_color_url = "000080";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<!-- end google ad -->
+
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example</title>
+<!--
+    <style type="text/css">
+    v\:* {
+      behavior:url(#default#VML);
+    }
+    </style>
+-->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=abcdefg"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var map;
+
+    // Creates a marker at the given point with the given number label
+    function createMarker(point, number) {
+      var marker = new GMarker(point);
+      GEvent.addListener(marker, "click", function() {
+        marker.openInfoWindowHtml("Marker #<b>" + number + "</b>");
+      });
+      return marker;
+    }
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+        // create map 
+        map = new GMap2(document.getElementById("map2"));
+        map.setCenter(new GLatLng(35.49, -83.56), 8);
+
+        // add zoom and sat/map/both controls
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+
+        // add pushpin
+        var point = new GLatLng(35.71, -83.49);
+        //map.addOverlay(new GMarker(point));
+        map.addOverlay(createMarker(point, "Gatlinburg"));
+
+        // draw line
+        var points = [];
+        points.push(new GLatLng(35.71, -83.49));
+        points.push(new GLatLng(35.81, -83.59));
+        points.push(new GLatLng(35.91, -83.79));
+        points.push(new GLatLng(35.99, -83.99));
+        map.addOverlay(new GPolyline(points));
+
+        GEvent.addListener(map, "moveend", function() {
+          var center = map.getCenter();
+          document.getElementById("message").innerHTML = center.toString();
+        });
+
+        //GEvent.addListener(map, "click", function(marker, point) {
+        //  if (marker) {
+        //     map.removeOverlay(marker);
+        //  } else {
+        //     map.addOverlay(new GMarker(point));
+        //     document.getElementById("message").innerHTML = point;
+        //  }
+        //});
+      }
+    }
+
+    function move() {
+      if (GBrowserIsCompatible()) {
+        map.setCenter(new GLatLng(35.40, -83.50), 8);
+      }
+    }
+
+    function popup() {
+      if (GBrowserIsCompatible()) {
+          map.openInfoWindow(map.getCenter(),
+                   document.createTextNode("Hello, world"));
+      }
+    }
+
+    //]]>
+    </script>
+  </head>
+  <body onload="load()" onunload="GUnload()">
+    <div onclick=move()> move </a></div>
+    <div onclick=popup()> window </a></div>
+    <div id="map2" style="width: 500px; height: 300px"></div>
+    <div id="message"></div>
+  </body>
+</html>
