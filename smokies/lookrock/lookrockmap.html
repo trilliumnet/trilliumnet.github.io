@@ -1,0 +1,158 @@
+<html>
+<head>
+    <title>Smokies.ws: Look Rock in The Great Smoky Mountains National Park</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=abcdefg"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    var map1;
+    var baseIcon = new GIcon();
+    baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";
+    baseIcon.iconSize = new GSize(20, 34);
+    baseIcon.shadowSize = new GSize(37, 34);
+    baseIcon.iconAnchor = new GPoint(9, 34);
+    baseIcon.infoWindowAnchor = new GPoint(9, 2);
+    baseIcon.infoShadowAnchor = new GPoint(18, 25);
+
+    // Creates a marker at the given point with the given label
+    function createMarker(point, descr, index) {
+      //var marker = new GMarker(point);
+      var letter = String.fromCharCode("A".charCodeAt(0) + index);
+      var icon = new GIcon(baseIcon);
+      icon.image = "http://www.google.com/mapfiles/marker" + letter + ".png";
+      var marker = new GMarker(point, icon);
+      GEvent.addListener(marker, "click", function() {
+        marker.openInfoWindowHtml("<b>" + descr + "</b>");
+      });
+      return marker;
+    }
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+        // create map1
+        map1 = new GMap2(document.getElementById("map1"));
+        map1.setCenter(new GLatLng(35.6360, -83.9350), 15);
+        //map1.setMapType(G_HYBRID_MAP);
+
+        // add zoom and sat/map/both controls
+        map1.addControl(new GLargeMapControl());
+        map1.addControl(new GMapTypeControl());
+
+        // add pushpins
+        // parking area
+        var point = new GLatLng(35.63082591309715, -83.94063234329224);
+        map1.addOverlay(createMarker(point, "Parking Area", 0));
+        // air quality station
+        var point = new GLatLng(35.63305826934026, -83.94142627716064);
+        map1.addOverlay(createMarker(point, "Air Quality Station", 1));
+        // fire tower
+        var point = new GLatLng(35.63222986316555, -83.94287467002869);
+        map1.addOverlay(createMarker(point, "Observation Tower", 2));
+        // picnic area
+        var point = new GLatLng(35.63748791665544, -83.93983840942383);
+        map1.addOverlay(createMarker(point, "Picnic Area", 3));
+        // entrance to the campground
+        var point = new GLatLng(35.6368775467666, -83.93616914749146);
+        map1.addOverlay(createMarker(point, "Campground Entrance", 4));
+        // restrooms
+        var point = new GLatLng(35.6370, -83.9385);
+        map1.addOverlay(createMarker(point, "Restrooms", 5));
+
+        // draw line
+        var points = [];
+        points.push(new GLatLng(35.63101775866038, -83.94005298614502));
+        points.push(new GLatLng(35.63126192507494, -83.93983840942383));
+        points.push(new GLatLng(35.63305826934026, -83.9413833618164));
+        points.push(new GLatLng(35.632151382135376, -83.94284248352051));
+        map1.addOverlay(new GPolyline(points));
+      }
+    }
+
+    //]]>
+    </script>
+</head>
+
+<body link=navy vlink=navy onload="load()" onunload="GUnload()">
+
+<table style="position:absolute; left:0px; top:0px" bgcolor=navy height=35px width=40%>
+  <td>
+    <b>&nbsp;&nbsp;&nbsp;<a href="index.html"><font color="white">
+       Smokies.ws
+    </font></a></b>
+  </td>
+</table>
+<table border=0 bgcolor=maroon width=100%>
+  <tr>
+  <td bgcolor=maroon> <br><font color=white size=+3>
+      <b>&nbsp;&nbsp;&nbsp;Map of Look Rock</b></font>
+  </td>
+  <td bgcolor=maroon align=right>
+     <img src=1s.jpg height=80> 
+     <img src=3s.jpg height=80>
+  </td>
+  <td bgcolor=maroon width=3%>&nbsp;</td>
+  </tr>
+</table>
+<p>
+
+<table border="1" width="100%">
+ <tr>
+  <td width="150" valign="top">
+    <div id="sidebar">
+      <b><font size=+1>Key:</font></b><br>
+      <table border=0 cellpadding=5>
+        <tr>
+           <td><img src="http://www.google.com/mapfiles/markerA.png">
+           <td>Parking area
+         </tr>
+         <tr>
+           <td><img src="http://www.google.com/mapfiles/markerB.png">
+           <td>Air quality station
+         </tr>
+         <tr>
+           <td><img src="http://www.google.com/mapfiles/markerC.png">
+           <td>Observation Tower
+         </tr>
+         <tr>
+           <td><img src="http://www.google.com/mapfiles/markerD.png">
+           <td>Picnic Area
+         </tr>
+         <tr>
+           <td><img src="http://www.google.com/mapfiles/markerE.png">
+           <td>Campground Entrance
+         </tr>
+         <tr>
+           <td><img src="http://www.google.com/mapfiles/markerF.png">
+           <td>Restrooms
+         </tr>
+     </div>
+   </table>
+   <hr>
+   Note: Parking is also available at the picnic area and at the campground
+  </td>
+  <td width=100% valign="top">
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
+      However, it seems JavaScript is either disabled or not supported by your browser. 
+      To view Google Maps, enable JavaScript by changing your browser options, and then 
+      try again.
+    </noscript>
+    <div id="map1" style="height:450"></div>
+  </td>
+</table>
+
+<p>
+
+<b>Directions for using the map:</b>
+<li>Click [+] to zoom in and [-] to zoom out, or drag the slider
+<li>Click and drag to move the map or click on the directional arrows
+<li>Click [Map] to view normal map, [Satellite] to view satellite image, or [Hybrid]
+    to show both the map and satellite views.
+<li>Double click on a spot to re-center the map at that point.
+<li>Press the browser reload button to reset the map to the original state
+
+<p>
+
+<a href="lookrock.html">Back to Look Rock main page</a>
+</html>
